@@ -1,0 +1,33 @@
+a{
+    text-decoration: none;
+}
+h4{
+    margin-top:0.8rem;
+}
+i{
+    cursor: pointer;
+}
+.topicCard{
+    border: 1px solid red;
+    height: 100px;
+    box-shadow:5px 5px lightgrey;
+}
+.topic{
+    display:flex
+}
+.edit{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.fa-trash-alt:hover{
+    color:red;
+}
+.far{
+    color: black;
+    font-size: 0.8rem;
+}
+.btn{
+    padding-top: 2px;
+    margin-right: -16px;
+}
