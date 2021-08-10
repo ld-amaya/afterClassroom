@@ -35,7 +35,7 @@ function ExamCard() {
             }   
         }
         getQuestion()
-    }, [count])
+    }, [user,examID,count])
     
     useEffect(() => {
         function selectChoice(answer) {
@@ -48,7 +48,7 @@ function ExamCard() {
     }, [answer])
 
     const handleClick = (e) => {
-        const { name, value } = e.target
+        const { value } = e.target
         setAnswer(value);
     }
     

@@ -18,7 +18,7 @@ function Summary() {
             setResults(res);
         }
         getResults()
-    }, []);
+    }, [isTeacher,user]);
     
     return (
         <div className='container'>

@@ -14,7 +14,7 @@ function Exam() {
             setExamID(res);
         }
         getExamId()
-    }, [])
+    }, [topic,user])
     
     return (
         <div className='mt-5'>

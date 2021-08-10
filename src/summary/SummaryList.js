@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import SummaryCard from './SummaryCard';
 
 function SummaryList({ results }) {

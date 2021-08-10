@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import QuestionsList from './QuestionsList';
 import afterClassroomAPI from '../api';
-import { after } from 'lodash';
 
 function QuestionsPerTopic() {
     const [questions, setQuestions] = useState([]);
@@ -15,7 +14,7 @@ function QuestionsPerTopic() {
             setQuestions(q);
         }
         getQuestions()
-    }, []);
+    }, [topic]);
 
     useEffect(() => {
         async function getQuestions() {
@@ -23,7 +22,7 @@ function QuestionsPerTopic() {
             setQuestions(q);
         }
         getQuestions()
-    }, [newQs]);
+    }, [newQs, topic]);
 
     const deleteQuestion = async (id) => {
         await afterClassroomAPI.deleteQuestion(id);

@@ -9,7 +9,7 @@ function ExamResult() {
     const [endExam, setEndExam] = useState(null);
     const { user, examID } = useParams()
     
-    useEffect(async () => {
+    useEffect(() => {
         async function getResults() {
             const res = await afterClassroomAPI.finishExam(user, examID)    
             setScore(res.score);
@@ -17,7 +17,7 @@ function ExamResult() {
             setEndExam(res.endexam);
         }
         getResults()
-    }, []);
+    }, [user, examID]);
 
     return (
         <div>

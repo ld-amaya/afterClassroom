@@ -47,7 +47,7 @@ function QuestionForm() {
             }
         }
         getQ(num)
-    }, [num])
+    }, [num, topic])
 
     useEffect(() => {
         function selectChoice(answer) {

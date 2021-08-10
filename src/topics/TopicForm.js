@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router';
 import { NavLink } from 'react-router-dom';
-import Alerts, { Alert } from '../alert/alert';
+import Alerts from '../alert/alert';
 import afterClassroomAPI from '../api'
 
 function TopicForm() {

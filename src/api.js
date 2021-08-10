@@ -1,12 +1,14 @@
 import axios from 'axios';
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3001'
+const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3001/'
 
 class afterClassroomAPI{
     static token;
 
     static async request(endpoint, data = {}, method = "get") {
+        
         const url = `${BASE_URL}${endpoint}`;
+    
         //Attach token to header
         const headers = { Authorization: `Bearer ${afterClassroomAPI.token}` };
         const params = (method === "get") ? data : {};
@@ -21,86 +23,86 @@ class afterClassroomAPI{
     }
 
     static async login(data) {
-        let res = await this.request(`/auth/login`, { data }, "POST")
+        let res = await this.request(`auth/login`, { data }, "POST")
         return res.token;
     }
 
     static async signup(data) {
-        let res = await this.request(`/auth/register`, { data }, "POST")
+        let res = await this.request(`auth/register`, { data }, "POST")
         return res.token
     }
 
     static async topics() {
-        let res = await this.request(`/topics`);
+        let res = await this.request(`topics`);
         return res.topic
     }
 
     static async addTopic(topic) {
-        let res = await this.request(`/topics`, { topic }, "POST")
+        let res = await this.request(`topics`, { topic }, "POST")
         return res.topic
         
     }
     
     static async editTopic(topic, id) {
-        let res = await this.request(`/topics/${id}`, { topic }, "PATCH");
+        let res = await this.request(`topics/${id}`, { topic }, "PATCH");
         return res.topic
     }
     
     static async deleteTopic(id) {
-        let res = await this.request(`/topics/${id}`, {}, "DELETE");
+        let res = await this.request(`topics/${id}`, {}, "DELETE");
         return res.topic
     }
 
     static async getQuestion(id) {
-        let res = await this.request(`/questions/${id}`);
+        let res = await this.request(`questions/${id}`);
         return res.question[0]
     }
 
     static async addQuestion(data) {
-        let res = await this.request(`/questions`, { data }, "POST")
+        let res = await this.request(`questions`, { data }, "POST")
         return res.question
     }
 
     static async updateQuestion(data, id) {
-        let res = await this.request(`/questions/${id}`, { data }, "PATCH");
+        let res = await this.request(`questions/${id}`, { data }, "PATCH");
         return res.question[0];
     }
     static async topicQuestions(topic) {
-        let res = await this.request(`/questions/topic/${topic}`)
+        let res = await this.request(`questions/topic/${topic}`)
         return res.questions;
     }
 
     static async deleteQuestion(id) {
-        let res = await this.request(`/questions/${id}`, {}, "DELETE");
+        let res = await this.request(`questions/${id}`, {}, "DELETE");
         return res.result
     }
 
     static async createExam(username, topic) {
-        let res = await this.request(`/exam/student/${username}/topic/${topic}`, {}, "POST");
+        let res = await this.request(`exam/student/${username}/topic/${topic}`, {}, "POST");
         return res.exam_id
     }
 
     static async getExamNum(username,examID, num) {
-        let res = await this.request(`/exam/student/${username}/exam/${examID}/${num}`)
+        let res = await this.request(`exam/student/${username}/exam/${examID}/${num}`)
         return res.question
     }
 
     static async saveAnswer(username, examID, num, answer) {
-        let res = await this.request(`/exam/student/${username}/exam/${examID}/${num}`, { answer }, "PATCH")
+        let res = await this.request(`exam/student/${username}/exam/${examID}/${num}`, { answer }, "PATCH")
         return res.answer
     }
 
     static async finishExam(username, examID) {
-        let res = await this.request(`/exam/student/${username}/exam/${examID}/finished`, {}, "PATCH")
+        let res = await this.request(`exam/student/${username}/exam/${examID}/finished`, {}, "PATCH")
         return res.result
     }
     // Get all results
     static async results() {
-        let res = await this.request(`/summary`);
+        let res = await this.request(`summary`);
         return res.result
     }
     static async resultsUser(user) {
-        let res = await this.request(`/summary/student/${user}`);
+        let res = await this.request(`summary/student/${user}`);
         return res.result;
     }
 }

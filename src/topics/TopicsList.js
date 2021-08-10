@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import TopicCard from './TopicCard';
 import TopicAddButton from './TopicAddButton';
 import './topicCard.css';

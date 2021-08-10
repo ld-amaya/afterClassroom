@@ -31,7 +31,7 @@ function App() {
           setTopics(t);
       }
       getTopics();
-  }, []);
+  }, [token]);
   
   async function login(credentails) {
     try {

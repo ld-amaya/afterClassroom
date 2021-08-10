@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 import afterClassroomAPI from '../api';
 import './exam.css';
@@ -19,7 +19,6 @@ function ExamCard() {
     const [choiceB, setChoiceB] = useState(null)
     const [choiceC, setChoiceC] = useState(null)
     const [choiceD, setChoiceD] = useState(null)
-    const history = useHistory();
 
     // Get the question
     useEffect(() => {
@@ -37,7 +36,7 @@ function ExamCard() {
             }   
         }
         getQuestion()
-    }, [count])
+    }, [user,examID,count])
     
     useEffect(() => {
         function selectChoice(answer) {

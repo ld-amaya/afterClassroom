@@ -1,7 +1,5 @@
-import React, {useState, useContext} from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
-import UserContext from '../context/UserContext';
 import TopicHeader from './TopicHeader';
 import './topicCard.css';
 
