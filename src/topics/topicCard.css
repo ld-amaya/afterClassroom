@@ -8,8 +8,6 @@ i{
     cursor: pointer;
 }
 .topicCard{
-    border: 1px solid red;
-    height: 100px;
     box-shadow:5px 5px lightgrey;
 }
 .topic{
@@ -30,4 +28,11 @@ i{
 .btn{
     padding-top: 2px;
     margin-right: -16px;
+}
+.exam{
+    text-align: right;
+}
+.exam:hover{
+    color:red !important;
+    font-weight: 500;
 }

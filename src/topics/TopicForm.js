@@ -24,10 +24,10 @@ function TopicForm() {
         const top = e.target.topic.value
         if(top.length>0){
             if (!topic && !id) {
-                afterClassroomAPI.addTopic(top);
+                afterClassroomAPI.addTopic(top.toLowerCase());
                 setIsAdded(true);
             } else {
-                afterClassroomAPI.editTopic(top, id);
+                afterClassroomAPI.editTopic(top.toLowerCase(), id);
                 setIsEdited(true);
             }
         }

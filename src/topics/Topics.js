@@ -1,19 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect,  useContext} from 'react';
 import afterClassroomAPI from '../api';
 import TopicsList from './TopicsList';
 import UserContext from '../context/UserContext';
 import './topicCard.css';
 
 function Topics() {
-    let [topics, setTopics] = useState([]);
-
-    useEffect(() => {
-        async function getTopics() {
-            const t = await afterClassroomAPI.topics();
-            setTopics(t);
-        }
-        getTopics();
-    }, [topics]);
+    const { topics, setTopics } = useContext(UserContext);
 
     async function deleteTopic(id){
         await afterClassroomAPI.deleteTopic(id)
